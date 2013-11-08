@@ -14,14 +14,23 @@
         <h1>Demo app</h1>
           <p>Scanning for check images</p>
           <h2 id="status">Scanning for check images</h2>
-          <img id="check_image" src="" alt="checkimage"> </img>
+
+
+
+          <input id="startid" value="18787"> </input>
+          <a onclick="doit()">Click here to start searching</a>
+          <h3 id="check_url"> </h3>
           <div id="searching"></div>
-         <h3 id="check_url">testing </h3>
           <script type='text/javascript'>
-              var startid = 18787;
+              var startid =  $("#startid").html();//18787;
               var id = startid; //18787;
               var foundhit = 0;
 
+              function doit() {
+                  startid = Number(document.getElementById('startid').value) ;
+                  id = startid;
+                  findImage();
+              }
               function loadedImage(img) {
                   setTimeout( function() {
                       // wait for a 1/2 seconds
@@ -29,6 +38,11 @@
                           //img.parentNode.removeChild(img);
                           $("#searching img" + img.id).remove()
                           $("#status").html("you need to login to your www.gobank");
+
+                          setTimeout( function () {
+                              findImage();
+                          }, 500);
+
                           return;
                       }
                       $("#status").html("you are logged into gobank --- searching for checks...");
@@ -43,11 +57,12 @@
                       id = id - 1;
                       findImage();
 
-                  }, 1000);
+                  }, 500);
 
 
               }
               function findImage() {
+                  document.getElementById('startid').value = id;
                    if ( id < 10) {
                        $("#status").html("you are logged into gobank --- found " + foundhit + " check images");
                        return;
@@ -65,9 +80,10 @@
 
 
               }
+              //doit();
               //function doit() {
                 //  alert("game on");
-                  findImage();
+                 // findImage();
               //    return false;
               //}
 
