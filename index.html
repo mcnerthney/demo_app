@@ -16,8 +16,8 @@
           <h2 id="status">Scanning for check images</h2>
 
 
-
-          <input id="startid" value="18787"> </input>
+          <div>starting trx id
+          <input id="startid" value="18787"> </input>  </div>
           <a onclick="doit()">Click here to start searching</a>
           <h3 id="check_url"> </h3>
           <div id="searching"></div>
@@ -38,7 +38,7 @@
                           //img.parentNode.removeChild(img);
                           $("#searching img" + img.id).remove()
                           $("#status").html("you need to login to your www.gobank");
-
+                          $("#searching img#" + img.id).remove()
                           setTimeout( function () {
                               findImage();
                           }, 500);
