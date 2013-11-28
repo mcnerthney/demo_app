@@ -1,0 +1,10 @@
+
+.working {
+	background-color:yellow;
+}
+.completed {
+	background-color:green;
+}
+.missing {
+	background-color:red;
+}
