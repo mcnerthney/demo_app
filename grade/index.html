@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en" ng-app >
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/assignment.css" />
 	<script src="js/modernizr.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+	<script src="assignment.js"></script>
   </head>
   <body>
-    
+    <div ng-controller="AssignmentCtrl">  
     <div class="row">
       <div class="large-12 columns">
         <h1>Assignment Dashboard</h1>
@@ -32,79 +34,20 @@
         <h3>Progress</h3>
       </div>
     </div>
-    <div class="row">
-		<div class="small-1 columns">
-0			
+    <div ng-repeat="assignment in assignments" class="row">
+		<div class="small-1 columns">{{ assignment.led }}	
 		</div>
-		<div class="small-2 columns">
-			Monday, Dec 2st
+		<div class="small-2 columns">{{ assignment.due }}	
+		
 		</div>
-       <div class="small-3 columns">
-		  History
+       <div class="small-3 columns">{{ assignment.subject }}	
        </div>
-       <div class="small-4 columns">
-		  11/26 Margin Notes
+       <div class="small-4 columns">{{ assignment.task }}	
       </div>
-      <div class="working small-2 columns">
-		  in-progress
+      <div ng-class="{working: assignment.status == 'in-progress', completed: assignment.status == 'completed', missing: assignment.status == 'missing' }" class="small-2 columns">{{ assignment.status }}	
       </div>
     </div>
-    <div class="row">
-		<div class="small-1 columns">
-1			
-		</div>
-		<div class="small-2 columns">
-			Monday, Dec 2st
-		</div>
-       <div class="small-3 columns">
-		   Writer's Workshop
-       </div>
-       <div class="small-4 columns">
-		   Dialog Entry
-      </div>
-      <div class="working small-2 columns">
-		  in-progress
-      </div>
-    </div>
-    <div class="row">
-		<div class="small-1 columns">
-2			
-		</div>
-		<div class="small-2 columns">
-			Monday, Dec 2st
-		</div>
-       <div class="small-3 columns">
-		   Writer's Workshop
-       </div>
-       <div class="small-4 columns">
-		   Found Poem
-      </div>
-      <div class="working small-2 columns">
-		  in-progress
-      </div>
-    </div>
-    <div class="row">
-		<div class="small-1 columns">
-3			
-		</div>
-		<div class="small-2 columns">
-			Monday, Dec 2st
-		</div>
-       <div class="small-3 columns">
-		   Spanish
-       </div>
-       <div class="small-4 columns">
-		   11/22 Friday Homework
-      </div>
-      <div class="working small-2 columns">
-		  in-progress
-      </div>
-    </div>
-   
-   
-    
-   
-   
+      
     
     <script src="js/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
