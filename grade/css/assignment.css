@@ -8,3 +8,6 @@
 .missing {
 	background-color:red;
 }
+.unassigned {
+    background-color:gray;
+}

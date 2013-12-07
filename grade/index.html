@@ -44,7 +44,7 @@
        </div>
        <div class="small-4 columns">{{ assignment.task }}	
       </div>
-      <div ng-class="{working: assignment.status == 'in-progress', completed: assignment.status == 'completed', missing: assignment.status == 'missing' }" class="small-2 columns">{{ assignment.status }}	
+      <div ng-class="{working: assignment.status == 'in-progress', completed: assignment.status == 'completed', missing: assignment.status == 'missing', unassigned: assignment.status == 'unassigned' }" class="small-2 columns">{{ assignment.status }}
       </div>
     </div>
       
